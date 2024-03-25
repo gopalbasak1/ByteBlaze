@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+
 
 
 const Navbar = () => {
@@ -25,9 +27,16 @@ const Navbar = () => {
 
     const links = 
         <>
-            <li><a>Home</a></li>
-            <li className="text-primary"><a>Blogs</a></li>
-            <li><a>Bookmarks</a></li>
+           <NavLink to="/" 
+           className={({isActive})=> isActive ? 'text-primary font-bold' : 'font-bold'}>Home</NavLink>
+
+           <NavLink to="/blogs" 
+           className={({isActive})=> isActive ? 'text-primary font-bold' : 'font-bold'}>Blogs</NavLink>
+
+           <NavLink to="/bookmarks"
+            className={({isActive})=> isActive ? 'text-primary font-bold' : 'font-bold'}>Bookmarks</NavLink>
+            
+            
         </>
         
 
@@ -35,10 +44,10 @@ const Navbar = () => {
     return (
         <div className="navbar bg-base-100 shadow-lg px-4 fixed z-10">
         <div className="flex-1">
-            <a className="btn btn-ghost text-2xl text-[#ff4ae0] gap-0 normal-case"> Byte<span className="text-[#4a00ff]">Blaze</span> </a>
+            <NavLink to="/" className="btn btn-ghost text-2xl text-[#ff4ae0] gap-0 normal-case"> Byte<span className="text-[#4a00ff]">Blaze</span> </NavLink>
         </div>
-        <div className="flex-none">
-            <ul className="menu menu-horizontal px-1 font-bold">
+        <div className="flex-none gap-2">
+            <ul className="menu menu-horizontal px-1 hidden sm:flex items-center gap-5 font-bold">
             {
                 links
             }

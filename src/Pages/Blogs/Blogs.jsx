@@ -1,8 +1,9 @@
 
+
 const Blogs = () => {
     return (
         <div>
-            This is blogs pages
+            blogs
         </div>
     );
 };
